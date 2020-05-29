@@ -1,46 +1,39 @@
-# Huned's opinionated nodejs starter repository for lazy developers
+# Recent tweets for node.js
 
-The instructions below assume you're using MacOS and homebrew, but
-should be easily adaptable to Linux systems.
+Main repo: [https://github.com/huned/nodejs-recent-tweets](https://github.com/huned/nodejs-recent-tweets)
 
-## Getting Started
+A function and command line utility to get recent tweets for a specific user.
 
-Clone this repo, then:
+Why use it?
 
-    # You should use `n` to manage node versions.
-    # Install `n` via `brew`.
-    brew install n
+* it's just one simple function
+* includes a command line tool for unix composability
+* anonymous: no API credentials needed
 
-    # Install node via `n`. Clobbers existing node installation in `/usr/local`.
-    # Change the version of node by editing `.n-node-version`
-    n install auto
+## Installation
 
-    # Copy environment variables file to the right place.
-    cp .env.sample .env
+    npm install recent-tweets
 
-    # Run it
-    npm test
-    npm start
+## Usage
 
-## Library Choices:
+    # Get recent tweets for `@huned`
+    const { getRecentTweets } = require('recent-tweets')
+    const tweets = await getRecentTweets('huned')
 
-These come installed:
+## Command Line
 
-* debug: better debug printing
-* lodash: utility stuff
-* dotenv: for loading environment variables from `.env`
-* mocha: for testing
-* sinon: for mocking and stubbing
-* standard: enforces standard js style
+Use the command line tool if you want to pipe the JSON output to another
+command. E.g.
 
-Use these as needed in projects. They're of reasonable quality.
+    TWITTER_USERNAME=huned npm start | mail -s 'Recent Tweets' you@example.com
 
-* numeral: number parsing and formatting
-* moment: date/time parsing and formatting
-* sequelize: orm
-* pg: for sequelize
-* pg-hstore: for sequelize
-* bent: making http requests
-* cheerio: parsing html
-* puppeteer: web scraping via headless chromium
-* pdfjs-dist: pdf parsing and rendering
+If you prefer, set environment variables in `.env` instead of specifying at the
+command line.
+
+## Author
+
+[Huned Botee](https://github.com/huned)
+
+## License
+
+MIT
