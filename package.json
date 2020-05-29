@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-starter",
+  "name": "recent-tweets",
   "version": "0.0.1",
-  "description": "Huned's opinionated nodejs starter repository",
+  "description": "A function and command line utility to get recent tweets for a specific user",
   "main": "index.js",
   "scripts": {
     "test": "standard --env mocha && NODE_ENV=test mocha --recursive",
@@ -9,25 +9,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/huned/nodejs-starter.git"
+    "url": "git://github.com/huned/nodejs-recent-tweets.git"
   },
   "keywords": [
-    "node.js",
-    "starter",
-    "template"
+    "twitter",
+    "tweets",
+    "command line"
   ],
   "author": "Huned Botee <huned@hunedbotee.com> (https://hunedbotee.com)",
   "license": "MIT",
   "devDependencies": {
-    "colors": "^1.4.0",
     "mocha": "^7.1.2",
     "sinon": "^9.0.2",
     "standard": "^14.3.4"
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "dotenv": "^8.2.0",
-    "lodash": "^4.17.15"
+    "dotenv": "^8.2.0"
   },
   "standard": {
     "env": {
