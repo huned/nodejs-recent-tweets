@@ -1,4 +1,4 @@
-# Recent tweets for node.js
+# Recent Tweets for node.js
 
 Main repo: [https://github.com/huned/nodejs-recent-tweets](https://github.com/huned/nodejs-recent-tweets)
 
@@ -8,7 +8,7 @@ Why use it?
 
 * it's just one simple function
 * includes a command line tool for unix composability
-* anonymous: no API credentials needed
+* anonymous: no API credentials needed (uses headless puppeteer)
 
 ## Installation
 
@@ -17,7 +17,7 @@ Why use it?
 ## Usage
 
     # Get recent tweets for `@huned`
-    const { getRecentTweets } = require('recent-tweets')
+    const getRecentTweets = require('recent-tweets')
     const tweets = await getRecentTweets('huned')
 
 ## Command Line
@@ -29,6 +29,10 @@ command. E.g.
 
 If you prefer, set environment variables in `.env` instead of specifying at the
 command line.
+
+Other environment variables you can define:
+
+* `HTTP_USER_AGENT`: specify user agent to use when fetching tweets
 
 ## Author
 
