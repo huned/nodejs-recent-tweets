@@ -1,5 +1,18 @@
 require('dotenv').config()
-const debug = require('debug')('index.js')
+const getRecentTweets = require('./lib/recent_tweets')
+const debug = require('debug')('recent-tweets')
 
-debug('this is some sample debugging output')
-process.stdout.write('put your code in ./index.js\n')
+if (require.main === module) {
+  const twitterUsername = process.env.TWITTER_USERNAME
+  debug(`getting recent tweets for ${twitterUsername}`)
+  getRecentTweets(twitterUsername)
+    .then(tweets => {
+      debug(`got tweets: ${JSON.stringify(tweets)}`)
+      process.stdout.write(JSON.stringify(tweets))
+      process.stdout.write('\n')
+    })
+} else {
+  debug('required as a module')
+}
+
+module.exports = getRecentTweets
