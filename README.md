@@ -3,12 +3,14 @@
 Main repo: [https://github.com/huned/nodejs-recent-tweets](https://github.com/huned/nodejs-recent-tweets)
 
 A function and command line utility to get recent tweets for a specific user.
+Also extracts useful information: text, timestamp, and all links.
 
 Why use it?
 
 * it's just one simple function
 * includes a command line tool for unix composability
 * anonymous: no API credentials needed (uses headless puppeteer)
+* returns a JSON object with html, text, links, and timestamp
 
 ## Installation
 
@@ -16,7 +18,7 @@ Why use it?
 
 ## Usage
 
-    # Get recent tweets for `@huned`
+    # Get recent tweets for https://twitter.com/huned
     const getRecentTweets = require('recent-tweets')
     const tweets = await getRecentTweets('huned')
 
