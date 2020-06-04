@@ -9,7 +9,7 @@ Why use it?
 
 * it's just one simple function
 * includes a command line tool for unix composability
-* anonymous: no API credentials needed (uses headless puppeteer)
+* anonymous: no API credentials needed
 * returns a JSON object with html, text, links, and timestamp
 
 ## Installation
