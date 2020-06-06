@@ -19,7 +19,7 @@ describe('getRecentTweets', function () {
     assert.ok(Array.isArray(tweets))
     assert.strictEqual(tweets.length, 20)
 
-    assert.strictEqual(tweet.t, '2020-05-25 00:00:00')
+    assert.strictEqual(tweet.t, '2019-11-25 00:00:00')
     assert.ok(/Finished my 5th @nodeknockout/.test(tweet.text))
     assert.strictEqual(tweet.hrefs[0], 'https://www.youtube.com/watch?v=JkUukMBfD4E&')
     assert.strictEqual(tweet.hrefs[1], 'https://www.nodeknockout.com/entries/53-team-tyson')
