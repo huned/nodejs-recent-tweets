@@ -1,4 +1,5 @@
 const assert = require('assert')
+const fs = require('fs')
 const getRecentTweets = require('../')
 
 // NOTE: don't use arrow functions with mocha.
@@ -12,8 +13,11 @@ describe('getRecentTweets', function () {
     // Allow enough time for chromium to load, etc
     this.timeout(10000)
 
-    const mockTwitterURLFn = () => `file://${process.cwd()}/test/mocks/twitter_nodeknockout_202005292057.html`
-    const tweets = await getRecentTweets('nodeknockout', null, mockTwitterURLFn)
+    const mockGetHTMLFn = () => {
+      const mockFile = `${process.cwd()}/test/mocks/twitter_nodeknockout_202005292057.html`
+      return fs.readFileSync(mockFile).toString()
+    }
+    const tweets = await getRecentTweets('nodeknockout', mockGetHTMLFn)
     const tweet = tweets[0]
 
     assert.ok(Array.isArray(tweets))
