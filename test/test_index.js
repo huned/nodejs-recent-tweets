@@ -29,7 +29,7 @@ describe('getRecentTweets', function () {
     assert.strictEqual(tweet.hrefs[1], 'https://www.nodeknockout.com/entries/53-team-tyson')
   })
 
-  it('extracts the URL of the tweet and removes the string, "/actions" from it', async () => {
+  it('extracts the URL of the tweet and removes the string, "/actions", from it', async () => {
     // Allow enough time for chromium to load, etc
     this.timeout(10000)
 
