@@ -28,4 +28,19 @@ describe('getRecentTweets', function () {
     assert.strictEqual(tweet.hrefs[0], 'https://www.youtube.com/watch?v=JkUukMBfD4E&')
     assert.strictEqual(tweet.hrefs[1], 'https://www.nodeknockout.com/entries/53-team-tyson')
   })
+
+  it('extracts the URL of the tweet and removes the string, "/actions" from it', async () => {
+    // Allow enough time for chromium to load, etc
+    this.timeout(10000)
+
+    const mockGetHTMLFn = () => {
+      const mockFile = `${process.cwd()}/test/mocks/twitter_nodeknockout_202005292057.html`
+      return fs.readFileSync(mockFile).toString()
+    }
+
+    const tweets = await getRecentTweets('nodeknockout', mockGetHTMLFn)
+    const tweet = tweets[0]
+
+    assert.strictEqual(tweet.url, '/wmdmark/status/1199071318320328704')
+  })
 })
