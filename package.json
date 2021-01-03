@@ -27,6 +27,7 @@
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "moment": "^2.26.0",
+    "puppeteer": "^5.5.0",
     "timeago-reverse": "^1.0.10"
   },
   "standard": {
