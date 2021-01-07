@@ -10,8 +10,10 @@ describe('getRecentTweets', function () {
   })
 
   it('parses tweets into JSON', async function () {
+    assert.fail('Need to reimplement for new twitter markup')
+
     // Allow enough time for chromium to load, etc
-    this.timeout(10000)
+    this.timeout(30000)
 
     const mockGetHTMLFn = () => {
       const mockFile = `${process.cwd()}/test/mocks/twitter_nodeknockout_202005292057.html`
