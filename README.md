@@ -7,10 +7,10 @@ Also extracts useful information: text, timestamp, and all links.
 
 Why use it?
 
-* it's just one simple function
-* includes a command line tool for unix composability
 * anonymous: no API credentials needed
-* returns a JSON object with html, text, links, and timestamp
+* returns an array of JSON objects with text, links, and timestamp
+* includes a command line tool for unix composability
+* ~~it's just one simple function~~ unfortunately, now uses puppeteer to work around twitter's recent changes
 
 ## Installation
 
@@ -27,14 +27,10 @@ Why use it?
 Use the command line tool if you want to pipe the JSON output to another
 command. E.g.
 
-    TWITTER_USERNAME=huned npm start | mail -s 'Recent Tweets' you@example.com
+    TWITTER_USERNAME=huned npm start --silent | mail -s 'Recent Tweets' you@example.com
 
 If you prefer, set environment variables in `.env` instead of specifying at the
 command line.
-
-Other environment variables you can define:
-
-* `HTTP_USER_AGENT`: specify user agent to use when fetching tweets
 
 ## Author
 
