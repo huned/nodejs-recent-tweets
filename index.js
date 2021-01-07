@@ -7,7 +7,7 @@ if (require.main === module) {
   debug(`getting recent tweets for ${twitterUsername}`)
   getRecentTweets(twitterUsername)
     .then(tweets => {
-      debug(`got tweets: ${JSON.stringify(tweets)}`)
+      debug(`got tweets: ${JSON.stringify(tweets, null, 2)}`)
       process.stdout.write(JSON.stringify(tweets))
       process.stdout.write('\n')
     })
