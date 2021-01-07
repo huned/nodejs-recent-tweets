@@ -1,6 +1,6 @@
 {
   "name": "recent-tweets",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A function and command line utility to get recent tweets for a specific user",
   "main": "index.js",
   "scripts": {
