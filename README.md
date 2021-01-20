@@ -2,8 +2,7 @@
 
 Main repo: [https://github.com/huned/nodejs-recent-tweets](https://github.com/huned/nodejs-recent-tweets)
 
-A function and command line utility to get recent tweets for a specific user.
-Also extracts useful information: text, timestamp, and all links.
+A function and command line utility to get recent tweets for a specific user. Also extracts useful information: text, timestamp, and all links.
 
 Why use it?
 
@@ -11,7 +10,6 @@ Why use it?
 * returns an array of JSON objects with text, links, and timestamp
 * includes a command line tool for unix composability
 * ~~it's just one simple function~~ unfortunately, now uses puppeteer to work around twitter's recent changes
-
 ## Installation
 
     npm install recent-tweets
