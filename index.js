@@ -1,4 +1,3 @@
-require('dotenv').config()
 const getRecentTweets = require('./lib/recent_tweets')
 const debug = require('debug')('recent-tweets')
 
