@@ -67,7 +67,7 @@ Why use it?
 
     # In your code
     const getTweets = require('recent-tweets')
-    const tweets = await getRecentTweets('earthquakessf')
+    const tweets = await getTweets('earthquakessf')
 
 ## Caveats
 
