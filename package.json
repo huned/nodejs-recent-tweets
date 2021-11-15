@@ -7,6 +7,9 @@
     "test": "standard --env mocha && NODE_ENV=test mocha --recursive --timeout 30000",
     "start": "node ./index.js"
   },
+  "man": [
+    "./man/doc.1"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/huned/nodejs-recent-tweets.git"

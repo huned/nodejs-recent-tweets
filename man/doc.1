@@ -1,0 +1,91 @@
+NAME
+
+    twls -- anonymously get a user's recent tweets as JSON
+
+SYNOPSIS
+
+    twls [options...] twitter_username
+
+    # Note how retweets are included.
+    $ twls elonmusk | jq
+    [
+      {
+        "time": "2021-11-15T01:48:09.000Z",
+        "permalink": "https://twitter.com/elonmusk/status/1460062031084761090",
+        "textContent": "Due to inflation 420 has gone up by 69",
+        "links": []
+      },
+      {
+        "time": "2021-02-04T18:54:00.000Z",
+        "permalink": "https://twitter.com/ConsumerReports/status/1357402040146808832",
+        "textContent": "We surveyed car owners to find the most satisfying vehicles on the road. \n\nRounding out the top 3 were the Tesla Model 3, Kia Telluride, and Tesla Model S.",
+        "links": []
+      },
+      {
+        "time": "2021-11-13T16:47:09.000Z",
+        "permalink": "https://twitter.com/elonmusk/status/1459563497403170824",
+        "textContent": "129 Orbital Flights",
+        "links": []
+      },
+      {
+        "time": "2021-11-13T12:06:35.000Z",
+        "permalink": "https://twitter.com/SpaceX/status/1459492889046577152",
+        "textContent": "Watch Falcon 9 launch 53 Starlink satellites to orbit → http://spacex.com/launches",
+        "links": [
+          {
+            "href": "https://t.co/bJFjLCzWdK?amp=1",
+            "textContent": "http://spacex.com/launches"
+          }
+        ]
+      },
+      ...
+    ]
+
+    # Note how the link's "https://t.co/..." href expands
+    $ twls elonmusk --expand-shortlinks | jq
+    [
+      ...
+      {
+        "time": "2021-11-13T12:06:35.000Z",
+        "permalink": "https://twitter.com/SpaceX/status/1459492889046577152",
+        "textContent": "Watch Falcon 9 launch 53 Starlink satellites to orbit → http://spacex.com/launches",
+        "links": [
+          {
+            "href": "https://www.spacex.com/launches/index.html",
+            "textContent": "http://spacex.com/launches"
+          }
+        ]
+      },
+      ...
+    ]
+
+OPTIONS
+
+    --expand-shortlinks, -x
+        Expand t.co shortened URLs into unshortened URLs
+        (Default: does not expand shortened URLs)
+
+    --device, -d
+        Set device descriptor. For most applications, it's not necessary to set
+        this option. (Default: --device="iPhone 11 Pro Max") For a full list of
+        device descriptions, see https://github.com/puppeteer/puppeteer/blob/main/src/common/DeviceDescriptors.ts
+
+CAVEATS
+
+    1. Expanding shortened URLs is slow because it takes 1+ network request to
+       lookup a shortened URLs destination. Expand short URLs with care. (`-x`)
+
+    2. The number of tweets returned is not known ahead of time. Because tweets
+       are screen scraped as a headless browser scrolls through the page, the
+       number of tweets is dependent on the number of scrolls, the number of
+       tweets, and the length of each tweet. **However, for most accounts, you
+       can expect to get back between 20-50 of the most recent tweets.**
+
+    3. This program (and its underlying node.js library) uses
+       [puppeteer](https://github.com/puppeteer/puppeteer) for scraping, it is 
+       fairly resource intensive. Unfortunately, there's no way around this with
+       puppeteer.
+
+SEE ALSO
+
+    See https://github.com/huned/nodejs-recent-tweets
