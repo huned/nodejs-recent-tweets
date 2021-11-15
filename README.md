@@ -9,38 +9,87 @@ Why use it?
 
 * anonymous: no API credentials needed
 * returns an array of JSON objects with text, permalink, links, and timestamp
-* includes a command line tool for unix composability
+* optionally, automatically unshortens https://t.co shortlinks.
+* includes a rad command line tool
 
-## Installation
+**WARNING** v1.0.0 has breaking changes from prior versions (<= 0.0.5).
 
-    npm install recent-tweets
+## Command Line Usage
 
-    # or npm install -g recent-tweets
+    # first install the module globally
+    $ npm install -g recent-tweets
 
-## Command Line
+    # then use the twls command
+    $ twls earthquakessf | jq
+    [
+      {
+        "time": "2021-11-15T18:27:01.000Z",
+        "permalink": "https://twitter.com/earthquakesSF/status/1460313405609287682",
+        "textContent": "A 1.7 magnitude earthquake occurred 8.08mi ESE of Angwin, CA. Details: http://eqbot.com/sPf Map:",
+        "links": [
+          {
+            "href": "https://t.co/zwz71Ud5VG?amp=1",
+            "textContent": "http://eqbot.com/sPf"
+          }
+        ]
+      },
+      {
+        "time": "2021-11-14T07:24:01.000Z",
+        "permalink": "https://twitter.com/earthquakesSF/status/1459784165889490944",
+        "textContent": "A 1.7 magnitude earthquake occurred 4.35mi E of Penngrove, CA. Details: http://eqbot.com/sPY Map:",
+        "links": [
+          {
+            "href": "https://t.co/Q7lR9coDQV?amp=1",
+            "textContent": "http://eqbot.com/sPY"
+          }
+        ]
+      },
+      {
+        "time": "2021-11-13T22:45:01.000Z",
+        "permalink": "https://twitter.com/earthquakesSF/status/1459653555606802436",
+        "textContent": "A 1.8 magnitude earthquake occurred 4.97mi WSW of Mountain House, CA. Details: http://eqbot.com/sPV Map:",
+        "links": [
+          {
+            "href": "https://t.co/MM5tilm59a?amp=1",
+            "textContent": "http://eqbot.com/sPV"
+          }
+        ]
+      },
+      ...
+    ]
 
-Use the command line tool if you want to pipe the JSON output to another
-command. E.g.
-
-    TWITTER_USERNAME=huned npm start --silent | mail -s 'Recent Tweets' you@example.com
+  See [`man twls`](./man/doc.1) for more.
 
 ## Node.js Usage
 
-    # Get recent tweets for https://twitter.com/huned
-    const getRecentTweets = require('recent-tweets... lstweets? lstw? twls?')
-    const tweets = await getRecentTweets('huned')
+    # Install the module
+    npm install recent-tweets --save
+
+    # In your code
+    const getTweets = require('recent-tweets')
+    const tweets = await getRecentTweets('earthquakessf')
+
+## Caveats
+
+* Expanding shortlinks: one additional network request per shortlink, so can
+  be slow.
 
 ## TODOs
 
-- [ ] Fix tests
-- [ ] Update package versions
+- [x] Fix tests
+- [x] Update package versions
 - [ ] CLI improvements
-    - [ ] use meow for actual argument parsing
-    - [ ] Set `bin` in package.json (better name?)
-    - [ ] man page
-- [ ] update README
+  - [x] actual argument parsing
+  - [x] Set `bin` in package.json (better name?)
+  - [x] man page
+  - [x] read usernames from stdin
+  - [x] catch errors and do something useful
+  - [x] usage messages
+- [x] Fix local twitter links
+- [x] update README
+- [x] git grep TODO and resolve them
+- [ ] rename files, repo, package
 - [ ] bump version, git tag, npm publish
-- [ ] ?ESM-ify?
 
 ## Author
 
