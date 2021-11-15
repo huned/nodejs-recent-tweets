@@ -4,7 +4,7 @@
   "description": "A function and command line utility to get recent tweets for a specific user",
   "main": "index.js",
   "scripts": {
-    "test": "standard --env mocha && NODE_ENV=test mocha --recursive",
+    "test": "standard --env mocha && NODE_ENV=test mocha --recursive --timeout 30000",
     "start": "node ./index.js"
   },
   "repository": {
