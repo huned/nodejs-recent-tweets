@@ -1,4 +1,4 @@
-# Recent Tweets for node.js
+# Recent Tweets for Node.js
 
 Main repo: [https://github.com/huned/nodejs-recent-tweets](https://github.com/huned/nodejs-recent-tweets)
 
@@ -12,7 +12,7 @@ Why use it?
 * optionally, automatically unshortens https://t.co shortlinks.
 * includes a rad command line tool
 
-**WARNING** v1.0.0 has breaking changes from prior versions (<= 0.0.5).
+**WARNING** v0.9.0 has breaking changes from prior releases (<= 0.0.5).
 
 ## Command Line Usage
 
@@ -76,20 +76,7 @@ Why use it?
 
 ## TODOs
 
-- [x] Fix tests
-- [x] Update package versions
-- [ ] CLI improvements
-  - [x] actual argument parsing
-  - [x] Set `bin` in package.json (better name?)
-  - [x] man page
-  - [x] read usernames from stdin
-  - [x] catch errors and do something useful
-  - [x] usage messages
-- [x] Fix local twitter links
-- [x] update README
-- [x] git grep TODO and resolve them
-- [ ] rename files, repo, package
-- [ ] bump version, git tag, npm publish
+- [ ] throw an error when puppeteer receives a 4xx response
 
 ## Author
 
