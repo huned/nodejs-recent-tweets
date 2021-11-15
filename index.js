@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const commandLineArgs = require('command-line-args')
-const getTweets = require('./lib/recent_tweets')
+const getTweets = require('./lib/get_tweets.js')
 const debug = require('debug')('recent-tweets')
 const readline = require('readline')
 
