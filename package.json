@@ -3,6 +3,9 @@
   "version": "0.0.5",
   "description": "A function and command line utility to get recent tweets for a specific user",
   "main": "index.js",
+  "bin": {
+    "twls": "./index.js"
+  },
   "scripts": {
     "test": "standard --env mocha && NODE_ENV=test mocha --recursive --timeout 30000",
     "start": "node ./index.js"
@@ -17,7 +20,8 @@
   "keywords": [
     "twitter",
     "tweets",
-    "command line"
+    "command line",
+    "twls"
   ],
   "author": "Huned Botee <huned@hunedbotee.com> (https://hunedbotee.com)",
   "license": "MIT",
